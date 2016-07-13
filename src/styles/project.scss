@@ -1,0 +1,16 @@
+.project {
+  &__title {
+    @include font-mono();
+    text-transform: uppercase;
+    margin: 4rem 0 2rem;
+    font-size: 3rem;
+  }
+
+  &:first-of-type &__title {
+    margin-top: 0;
+  }
+
+  &__type {
+    @include font-mono(700);
+  }
+}

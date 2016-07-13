@@ -1,0 +1,21 @@
+.content {
+  position: absolute;
+  top: 0;
+  left: $external-border-width;
+  right: $external-border-width;
+  height: 100%;
+  font-size: 2rem;
+  pointer-events: none;
+  display: none;
+  @include font-serif();
+
+  &__inner {
+    margin-left: percentage(1 / $grid-cols);
+    padding: $external-border-width;
+    pointer-events: auto;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    margin-right: -$external-border-width;
+  }
+}

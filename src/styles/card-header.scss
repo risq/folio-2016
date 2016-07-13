@@ -1,0 +1,63 @@
+.card-header {
+  .card__front {
+    background-color: #222;
+  }
+
+  &__title {
+    font-size: 3vw;
+    text-transform: uppercase;
+    line-height: 3vw;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+    @include font-mono();
+
+    &:after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      background-color: $color-white;
+      width: 90%;
+      height: 2px;
+      left: 0;
+      bottom: -1rem;
+    }
+  }
+
+  &__subtitle {
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 1.75vw;
+    letter-spacing: -.15vw;
+    margin: 0;
+    position: absolute;
+    bottom: $card-padding;
+    right: $card-padding;
+    @include font-mono(300);
+  }
+
+  &__nav {
+    text-align: right;
+    font-size: 1vw;
+    text-transform: uppercase;
+    position: absolute;
+    padding: $card-padding;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 150%;
+    background-color: $color-main;
+    transition: all .5s ease-in-out;
+    @include font-mono(300);
+  }
+
+  &--show-nav {
+    .card-header__nav {
+      top: 0;
+    }
+  }
+}

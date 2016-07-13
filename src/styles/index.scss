@@ -1,0 +1,24 @@
+@import "_variables.scss";
+@import "_fonts.scss";
+@import "_mq.scss";
+
+@import "grid.scss";
+@import "content.scss";
+@import "project.scss";
+
+@import "card.scss";
+@import "card-header.scss";
+@import "card-nav.scss";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  @include font-mono();
+}
+
+html {
+  font-size: 62.5%;
+}

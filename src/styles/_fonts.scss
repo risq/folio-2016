@@ -1,0 +1,14 @@
+@mixin font-sans($font-weight: 400) {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: $font-weight;
+}
+
+@mixin font-mono($font-weight: 400) {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: $font-weight;
+}
+
+@mixin font-serif($font-weight: 400) {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: $font-weight;
+}
