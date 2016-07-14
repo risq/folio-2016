@@ -1,14 +1,14 @@
-@import "_variables.scss";
-@import "_fonts.scss";
-@import "_mq.scss";
+@import "common/variables";
+@import "common/fonts";
+@import "common/mq";
 
-@import "grid.scss";
-@import "content.scss";
-@import "project.scss";
+@import "layout/grid";
+@import "layout/content";
 
-@import "card.scss";
-@import "card-header.scss";
-@import "card-nav.scss";
+@import "components/project";
+@import "components/card";
+@import "components/card-header";
+@import "components/card-nav";
 
 html, body {
   width: 100%;

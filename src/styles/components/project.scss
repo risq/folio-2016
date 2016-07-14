@@ -1,0 +1,35 @@
+.project {
+  margin-bottom: 10rem;
+
+  &__title {
+    @include font-mono();
+    text-transform: uppercase;
+    margin: 4rem 0 2rem;
+    font-size: 3rem;
+  }
+
+  &:first-of-type &__title {
+    margin-top: 0;
+  }
+
+  &__type {
+    @include font-mono(700);
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__gallery {
+    width: 100%;
+    position: relative;
+
+    img {
+      height: 20rem;
+      width: auto;
+      display: inline-block;
+      margin: 0 1rem 1rem 0;
+    }
+  }
+}

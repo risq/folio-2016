@@ -1,9 +1,10 @@
 'use strict';
 
-const Path = require('path')
-const Webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Path = require('path');
+const Webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
 
 module.exports = (options) => {
@@ -13,21 +14,27 @@ module.exports = (options) => {
     entry: [
       `webpack-dev-server/client?http://localhost:${options.port}`,
       'webpack/hot/dev-server',
-      './src/scripts/index'
+      './src/scripts/index',
     ],
     output: {
       path: Path.join(__dirname, 'dist'),
-      filename: 'bundle.js'
+      filename: 'bundle.js',
     },
     plugins: [
       new Webpack.DefinePlugin({
         'process.env': {
-          NODE_ENV: JSON.stringify(options.isProduction ? 'production' : 'development')
+          NODE_ENV: JSON.stringify(options.isProduction ? 'production' : 'development'),
         }
       }),
       new HtmlWebpackPlugin({
-        template: './src/index.html'
-      })
+        template: './src/index.html',
+      }),
+      new CopyWebpackPlugin([
+        {
+          from: './src/images',
+          to: 'images',
+        },
+      ]),
     ],
     module: {
       loaders: [{
@@ -35,10 +42,10 @@ module.exports = (options) => {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          presets: ['es2015']
-        }
-      }]
-    }
+          presets: ['es2015'],
+        },
+      }],
+    },
   };
 
   if (options.isProduction) {
@@ -48,15 +55,15 @@ module.exports = (options) => {
       new Webpack.optimize.OccurenceOrderPlugin(),
       new Webpack.optimize.UglifyJsPlugin({
         compressor: {
-          warnings: false
-        }
+          warnings: false,
+        },
       }),
       ExtractSASS
     );
 
     webpackConfig.module.loaders.push({
       test: /\.scss$/i,
-      loader: ExtractSASS.extract(['css', 'sass'])
+      loader: ExtractSASS.extract(['css', 'sass']),
     });
 
   } else {
@@ -66,11 +73,11 @@ module.exports = (options) => {
 
     webpackConfig.module.loaders.push({
       test: /\.scss$/i,
-      loaders: ['style', 'css', 'sass']
+      loaders: ['style', 'css', 'sass'],
     }, {
       test: /\.js$/,
       loader: 'eslint',
-      exclude: /node_modules/
+      exclude: /node_modules/,
     });
 
     webpackConfig.devServer = {
@@ -78,7 +85,7 @@ module.exports = (options) => {
       hot: true,
       port: options.port,
       inline: true,
-      progress: true
+      progress: true,
     };
   }
 
