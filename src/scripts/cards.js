@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Bluebird from 'bluebird';
 
 const gridRows = 3;
 const gridCols = 4;
@@ -9,28 +10,49 @@ export default class Cards {
     this.initEls();
     this.initEvents();
 
-    console.log(this.getPosFromIndex(5), this.getPosFromIndex(6));
-    console.log(this.getPosFromIndex(5), this.getPosFromIndex(4));
+    this.page = 'index';
   }
 
   initEls() {
     this.$els = {
-      cards: $('.js-card').sort((a, b) => +a.getAttribute('data-cardIndex') - +b.getAttribute('data-cardIndex')),
+      cards: $('.js-card').sort((a, b) => this.getCardIndex($(a)) - this.getCardIndex($(b))),
+      headerCard: $('.js-card-header'),
+      projectsCard: $('.js-card-projects'),
       content: $('.js-content'),
     };
   }
 
   initEvents() {
     this.$els.cards.on('click', this.onCardClick.bind(this));
+    this.$els.projectsCard.on('click', this.onProjectsCardClick.bind(this));
   }
 
   onCardClick(e) {
     const $card = $(e.currentTarget);
-    console.log(this.getPosFromIndex($card.attr('data-cardIndex')));
-    this.propagate($card.attr('data-cardIndex'));
+    if (this.page === 'projects-select') {
+      this.viewProject($card);
+    }
   }
 
-  propagate(centerIndex) {
+  onProjectsCardClick(e) {
+    const index = this.getCardIndex(this.$els.projectsCard);
+    this.$els.projectsCard.addClass('active');
+    this.propagate(index, 'show-image', [0, index])
+      .then(() => {
+        this.page = 'projects-select';
+      });
+  }
+
+  viewProject($projectCard) {
+    this.$els.headerCard.removeClass('show-image');
+    this.propagate(this.getCardIndex($projectCard), 'flipped', [0])
+      .then(() => {
+        this.$els.headerCard.addClass('card-header--show-nav');
+        this.$els.content.fadeIn();
+      });
+  }
+
+  propagate(centerIndex, cardClass, exclude = []) {
     const centerPos = this.getPosFromIndex(centerIndex);
     let maxTime = 0;
 
@@ -38,17 +60,14 @@ export default class Cards {
       const $card = $(el);
       const pos = this.getPosFromIndex(i);
 
-      if (pos.col !== 0 || pos.row !== 0) {
+      if (exclude.indexOf(i) === -1) {
         const time = this.getDistance(centerPos, pos) * propagationTime;
         maxTime = time > maxTime ? time : maxTime;
-        setTimeout(() => $card.addClass('flipped'), time);
+        setTimeout(() => $card.addClass(cardClass), time);
       }
     });
 
-    setTimeout(() => {
-      this.$els.cards.first().addClass('card-header--show-nav');
-      this.$els.content.fadeIn();
-    }, maxTime + 500);
+    return new Bluebird(resolve => setTimeout(resolve, maxTime + 500));
   }
 
   getCardFromPos(col, row) {
@@ -65,5 +84,9 @@ export default class Cards {
 
   getDistance(posA, posB) {
     return Math.sqrt((posA.row - posB.row) * (posA.row - posB.row) + (posA.col - posB.col) * (posA.col - posB.col));
+  }
+
+  getCardIndex($card) {
+    return parseInt($card.attr('data-cardIndex'), 10) || -1;
   }
 }

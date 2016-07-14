@@ -1,4 +1,7 @@
 .card-header {
+  z-index: 10;
+  overflow: hidden;
+
   .card__front {
     background-color: #222;
   }
@@ -49,15 +52,17 @@
     height: 100%;
     width: 100%;
     left: 0;
-    top: 150%;
+    opacity: 0;
+    top: 110%;
     background-color: $color-main;
-    transition: all .5s ease-in-out;
+    transition: top .7s ease-in-out;
     @include font-mono(300);
   }
 
   &--show-nav {
     .card-header__nav {
       top: 0;
+      opacity: 1;
     }
   }
 }

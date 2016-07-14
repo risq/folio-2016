@@ -1,5 +1,6 @@
 .project {
   margin-bottom: 10rem;
+  max-width: 96rem;
 
   &__title {
     @include font-mono();

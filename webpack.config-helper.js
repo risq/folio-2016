@@ -31,8 +31,7 @@ module.exports = (options) => {
       }),
       new CopyWebpackPlugin([
         {
-          from: './src/images',
-          to: 'images',
+          from: './src/static',
         },
       ]),
     ],
@@ -91,4 +90,4 @@ module.exports = (options) => {
 
   return webpackConfig;
 
-}
+};
