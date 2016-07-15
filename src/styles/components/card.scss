@@ -1,6 +1,6 @@
 $card-padding: 1.25vw;
 $initialLightenPercent: 0%;
-$lightness: 5%;
+$lightness: 4.5%;
 
 .card {
   perspective: 1000px;
@@ -19,8 +19,11 @@ $lightness: 5%;
   }
 
   @for $i from 1 through 8 {
-    &--color-#{$i} .card__front {
-      background-color: lighten($color-main, $initialLightenPercent + ($lightness * $i));
+    &--color-#{$i} {
+      .card__front,
+      .card__thumbnail {
+        background-color: lighten($color-main, $initialLightenPercent + ($lightness * $i));
+      }
     }
   }
 
@@ -40,6 +43,7 @@ $lightness: 5%;
     &__thumbnail {
       display: block;
       transform: scale(1) rotateY(0deg);
+      transition: transform .5s .3s ease-in-out;
     }
 
     &__front {
@@ -89,7 +93,7 @@ $lightness: 5%;
     z-index: 5;
     transform: scale(0) rotateY(0deg);
     overflow: hidden;
-    transition: transform .5s .3s ease-in-out;
+    transition: transform .5s ease-in-out;
 
     video {
       width: 100%;

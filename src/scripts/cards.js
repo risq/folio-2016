@@ -19,43 +19,62 @@ export default class Cards {
       headerCard: $('.js-card-header'),
       projectsCard: $('.js-card-projects'),
       content: $('.js-content'),
+      projectsBack: $('.js-projects-back'),
     };
   }
 
   initEvents() {
     this.$els.cards.on('click', this.onCardClick.bind(this));
     this.$els.projectsCard.on('click', this.onProjectsCardClick.bind(this));
+    this.$els.projectsBack.on('click', this.onProjectsBackClick.bind(this));
   }
 
   onCardClick(e) {
     const $card = $(e.currentTarget);
-    if (this.page === 'projects-select') {
-      this.viewProject($card)
-        .then(() => {
-          const targetProject = $card.attr('data-target-project');
-          const $targetProject = targetProject ? $(`#${targetProject}`) : null;
 
-          if ($targetProject && $targetProject.length) {
-            console.log($targetProject, $targetProject.offset());
+    if (this.page === 'projects-select') {
+      const targetProject = $card.attr('data-target-project');
+      const $targetProject = targetProject ? $(`#${targetProject}`) : null;
+
+      if ($targetProject && $targetProject.length) {
+        this.viewProject($card)
+          .then(() => {
             $('body').scrollTop($targetProject.position().top);
-          }
-        });
+            this.page = 'project';
+          });
+      }
+
     }
   }
 
   onProjectsCardClick(e) {
     const index = this.getCardIndex(this.$els.projectsCard);
-    this.$els.projectsCard.addClass('active');
-    this.playVideos();
-    this.propagate(index, 'show-image', [0, index])
-      .then(() => {
-        this.page = 'projects-select';
-      });
+
+    if (this.page === 'index') {
+      this.$els.projectsCard.addClass('active');
+      this.playVideos();
+      this.propagate(index, [0, index], $card => $card.addClass('show-image'))
+        .then(() => {
+          this.page = 'projects-select';
+        });
+    }
+  }
+
+  onProjectsBackClick(e) {
+    const index = this.getCardIndex(this.$els.projectsBack);
+
+    if (this.page === 'projects-select') {
+      this.$els.projectsCard.removeClass('active');
+      this.propagate(index, [], $card => $card.removeClass('show-image'))
+        .then(() => {
+          this.page = 'index';
+        });
+    }
   }
 
   viewProject($projectCard) {
     this.$els.headerCard.removeClass('show-image');
-    return this.propagate(this.getCardIndex($projectCard), 'flipped', [0])
+    return this.propagate(this.getCardIndex($projectCard), [0], $card => $card.addClass('flipped'))
       .then(() => {
         this.stopVideos();
         this.$els.headerCard.addClass('card-header--show-nav');
@@ -63,7 +82,7 @@ export default class Cards {
       });
   }
 
-  propagate(centerIndex, cardClass, exclude = []) {
+  propagate(centerIndex, exclude = [], callback) {
     const centerPos = this.getPosFromIndex(centerIndex);
     let maxTime = 0;
 
@@ -74,7 +93,7 @@ export default class Cards {
       if (exclude.indexOf(i) === -1) {
         const time = this.getDistance(centerPos, pos) * propagationTime;
         maxTime = time > maxTime ? time : maxTime;
-        setTimeout(() => $card.addClass(cardClass), time);
+        setTimeout(() => callback($card), time);
       }
     });
 
