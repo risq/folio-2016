@@ -1,3 +1,5 @@
+@import "~fluidbox/dist/css/fluidbox.min.css";
+
 @import "common/variables";
 @import "common/fonts";
 @import "common/mq";
@@ -11,11 +13,8 @@
 @import "components/card-nav";
 
 html, body {
-  width: 100%;
-  height: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
   @include font-mono();
 }
 

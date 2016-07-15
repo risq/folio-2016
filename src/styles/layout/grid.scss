@@ -3,7 +3,7 @@
   height: 100%;
   padding: $external-border-width;
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
   color: $color-white;
 
   &__row {

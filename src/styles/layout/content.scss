@@ -15,7 +15,7 @@
     pointer-events: auto;
     height: 100%;
     box-sizing: border-box;
-    overflow: auto;
     margin-right: -$external-border-width;
+    background-color: $color-white;
   }
 }

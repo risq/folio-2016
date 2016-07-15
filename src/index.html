@@ -31,16 +31,16 @@
           </div>
         </div>
         <div class="card__back"></div>
-        <div class="card__thumbnail" style="background-image: url('/images/dihh.png')"></div>
+        <div class="card__thumbnail" style="background-image: url('/images/dihh.jpg')"></div>
       </div>
       <div class="grid__item card card--color-3 js-card" data-cardIndex="2">
         <div class="card__front"></div>
         <div class="card__back"></div>
         <div class="card__thumbnail">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/dihh.mp4" type="video/mp4">
             <source src="/videos/dihh.webm" type="video/webm">
-              <img src="/images/dihh.png"/>
+              <img src="/images/dihh.jpg"/>
           </video>
         </div>
       </div>
@@ -56,10 +56,10 @@
         </div>
         <div class="card__back"></div>
         <div class="card__thumbnail">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/oz2015.mp4" type="video/mp4">
             <source src="/videos/oz2015.webm" type="video/webm">
-              <img src="/images/oz2015.png"/>
+              <img src="/images/oz2015.jpg"/>
           </video>
         </div>
       </div>
@@ -69,10 +69,10 @@
         <div class="card__front"></div>
         <div class="card__back"></div>
         <div class="card__thumbnail">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/oz2016.mp4" type="video/mp4">
             <source src="/videos/oz2016.webm" type="video/webm">
-              <img src="/images/maze.png"/>
+              <img src="/images/maze.jpg"/>
           </video>
         </div>
       </div>
@@ -80,10 +80,10 @@
         <div class="card__front"></div>
         <div class="card__back"></div>
         <div class="card__thumbnail">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/anamorph.mp4" type="video/mp4">
             <source src="/videos/anamorph.webm" type="video/webm">
-              <img src="/images/anamorph.png"/>
+              <img src="/images/anamorph.jpg"/>
           </video>
         </div>
       </div>
@@ -99,10 +99,10 @@
         </div>
         <div class="card__back"></div>
         <div class="card__thumbnail">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/splash.mp4" type="video/mp4">
             <source src="/videos/splash.webm" type="video/webm">
-              <img src="/images/splash.png"/>
+              <img src="/images/splash.jpg"/>
           </video>
         </div>
       </div>
@@ -110,10 +110,10 @@
         <div class="card__front"></div>
         <div class="card__back"></div>
         <div class="card__thumbnail card__thumbnail--align-top-left">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/dokkuboard.mp4" type="video/mp4">
             <source src="/videos/dokkuboard.webm" type="video/webm">
-              <img src="/images/dokkuboard.png"/>
+              <img src="/images/dokkuboard.jpg"/>
           </video>
         </div>
       </div>
@@ -130,10 +130,10 @@
           </div></div>
         <div class="card__back"></div>
         <div class="card__thumbnail">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/maze.mp4" type="video/mp4">
             <source src="/videos/maze.webm" type="video/webm">
-              <img src="/images/maze.png"/>
+              <img src="/images/maze.jpg"/>
           </video>
         </div>
       </div>
@@ -141,17 +141,17 @@
         <div class="card__front"></div>
         <div class="card__back"></div>
         <div class="card__thumbnail card__thumbnail--align-top-left">
-          <video loop autoplay>
+          <video class="js-card-video" loop>
             <source src="/videos/investigator.mp4" type="video/mp4">
             <source src="/videos/investigator.webm" type="video/webm">
-              <img src="/images/investigator.png"/>
+              <img src="/images/investigator.jpg"/>
           </video>
         </div>
       </div>
       <div class="grid__item card card--color-5 js-card" data-cardIndex="10">
         <div class="card__front"></div>
         <div class="card__back"></div>
-        <div class="card__thumbnail" style="background-image: url('/images/oz2016.png')"></div>
+        <div class="card__thumbnail" style="background-image: url('/images/oz2016.jpg')"></div>
       </div>
       <div class="grid__item card card-nav card--color-8 js-card" data-cardIndex="11">
         <div class="card__front">
@@ -176,7 +176,7 @@
         <h3 class="project__title">
           <span class="project__type">WebGL</span>/Digging Into Hip Hop
         </h3>
-        <img class="project__image" src="/images/dihh.png"/>
+        <img class="project__image" src="/images/dihh.jpg"/>
         <p>
           D.I.H.H. est un site web interactif permettant de découvrir des disques en fouillant dans des caisses de vinyles en trois dimensions.
         </p>
@@ -190,8 +190,12 @@
           Le coeur du projet est open source et accessible sous la forme d’une librairie javascript, distribuée sous licence MIT.
         </p>
         <div class="project__gallery">
-          <img class="project__image" src="/images/dihh2.png"/>
-          <img class="project__image" src="/images/dihh3.png"/>
+          <a href="/images/dihh2.jpg" class="js-fluidbox">
+            <img class="project__image" src="/images/dihh2.jpg"/>
+          </a>
+          <a href="/images/dihh3.jpg" class="js-fluidbox">
+            <img class="project__image" src="/images/dihh3.jpg"/>
+          </a>
         </div>
       </div>
       <div class="project">
@@ -210,7 +214,7 @@
         <h3 class="project__title">
           <span class="project__type">Unity</span>/Maze
         </h3>
-        <img class="project__image" src="/images/maze.png"/>
+        <img class="project__image" src="/images/maze.jpg"/>
         <p>
           Maze est un jeu d’aventure et de survie dans un labyrinthe. Il s’agit d’un projet expérimental traitant de la génération procédurale et, plus généralement, du genre du rogue like ou du procedural death labyrinth.
         </p>
@@ -221,17 +225,25 @@
           En plaçant des repères, il pourra petit à petit s’approprier le labyrinthe et utiliser à son avantage les pièges et obstacles pour se débarrasser des ennemis qui le traquent.
         </p>
         <div class="project__gallery">
-          <img class="project__image" src="/images/maze_2.png"/>
-          <img class="project__image" src="/images/maze_3.png"/>
-          <img class="project__image" src="/images/maze_4.png"/>
-          <img class="project__image" src="/images/maze_map.png"/>
+          <a href="/images/maze_2.jpg" class="js-fluidbox">
+            <img class="project__image" src="/images/maze_2.jpg"/>
+          </a>
+          <a href="/images/maze_3.jpg" class="js-fluidbox">
+            <img class="project__image" src="/images/maze_3.jpg"/>
+          </a>
+          <a href="/images/maze_4.jpg" class="js-fluidbox">
+            <img class="project__image" src="/images/maze_4.jpg"/>
+          </a>
+          <a href="/images/maze_map.jpg" class="js-fluidbox">
+            <img class="project__image" src="/images/maze_map.jpg"/>
+          </a>
         </div>
       </div>
       <div class="project">
         <h3 class="project__title">
           <span class="project__type">Arduino</span>/Splash
         </h3>
-        <img class="project__image" src="/images/splash.png"/>
+        <img class="project__image" src="/images/splash.jpg"/>
         <p>
           Splash est un projet interactif et collaboratif permettant de peindre à plusieurs, via un smartphone, sur une toile suspendue.
         </p>
@@ -246,7 +258,7 @@
         <h3 class="project__title">
           <span class="project__type">Objet connecté</span>/Youka
         </h3>
-        <img class="project__image" src="/images/youka.png"/>
+        <img class="project__image" src="/images/youka.jpg"/>
         <p>
           Projet de 1ère année Gobelins, Youka consiste en une plante connectée, symbolisant, par sa croissance, le développement des relations entre les employés d’une entreprise.
         </p>
@@ -258,7 +270,7 @@
         <h3 class="project__title">
           <span class="project__type">Mobile</span>/Lexmark Cartridge Collection Program
         </h3>
-        <img class="project__image" src="/images/lccp.png"/>
+        <img class="project__image" src="/images/lccp.jpg"/>
         <p>
           Développée à Oz Conseil, LCCP est une application mobile permettant de faciliter le retour de cartouches usagées auprès de Lexmark, dans le cadre du Lexmark Cartridge Collection Program. Ce programme a pour objectif de récupérer, réutiliser ou recycler les cartouches Lexmark vides afin de diminuer les déchets et les ressources consommées. L’application est développée en javascript avec Cordova.
         </p>
@@ -267,7 +279,7 @@
         <h3 class="project__title">
           <span class="project__type">WebGL</span>/Ensemble, dessinons 2015
         </h3>
-        <img class="project__image" src="/images/oz2015.png"/>
+        <img class="project__image" src="/images/oz2015.jpg"/>
         <p>
           Ensemble, dessinons 2015 a été développé à l’occasion de la nouvelle année 2015 pour Oz Conseil. Il s’agit d’un mini-jeu de course développé en WebGL. A la fin de la course, le joueur voit son tracé affiché, vu de dessus, puis ceux de tous les autres joueurs se superposent, laissant apparaître “2015”. Le jeu fonctionne sur tous les navigateurs modernes, smartphones et tablettes.
         </p>

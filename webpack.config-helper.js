@@ -1,11 +1,12 @@
 'use strict';
 
-const Path = require('path');
-const Webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
+
+const extractSASS = new ExtractTextPlugin('styles/bundle.css');
 
 module.exports = (options) => {
 
@@ -17,11 +18,16 @@ module.exports = (options) => {
       './src/scripts/index',
     ],
     output: {
-      path: Path.join(__dirname, 'dist'),
+      path: path.join(__dirname, 'dist'),
       filename: 'bundle.js',
     },
     plugins: [
-      new Webpack.DefinePlugin({
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+      }),
+      new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify(options.isProduction ? 'production' : 'development'),
         }
@@ -51,23 +57,23 @@ module.exports = (options) => {
     webpackConfig.entry = ['./src/scripts/index'];
 
     webpackConfig.plugins.push(
-      new Webpack.optimize.OccurenceOrderPlugin(),
-      new Webpack.optimize.UglifyJsPlugin({
+      new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({
         compressor: {
           warnings: false,
         },
       }),
-      ExtractSASS
+      extractSASS
     );
 
     webpackConfig.module.loaders.push({
       test: /\.scss$/i,
-      loader: ExtractSASS.extract(['css', 'sass']),
+      loader: extractSASS.extract(['css', 'sass']),
     });
 
   } else {
     webpackConfig.plugins.push(
-      new Webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin()
     );
 
     webpackConfig.module.loaders.push({

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Bluebird from 'bluebird';
 
 const gridRows = 3;
@@ -16,6 +15,7 @@ export default class Cards {
   initEls() {
     this.$els = {
       cards: $('.js-card').sort((a, b) => this.getCardIndex($(a)) - this.getCardIndex($(b))),
+      videos: $('.js-card-video'),
       headerCard: $('.js-card-header'),
       projectsCard: $('.js-card-projects'),
       content: $('.js-content'),
@@ -37,6 +37,7 @@ export default class Cards {
   onProjectsCardClick(e) {
     const index = this.getCardIndex(this.$els.projectsCard);
     this.$els.projectsCard.addClass('active');
+    this.playVideos();
     this.propagate(index, 'show-image', [0, index])
       .then(() => {
         this.page = 'projects-select';
@@ -47,6 +48,7 @@ export default class Cards {
     this.$els.headerCard.removeClass('show-image');
     this.propagate(this.getCardIndex($projectCard), 'flipped', [0])
       .then(() => {
+        this.stopVideos();
         this.$els.headerCard.addClass('card-header--show-nav');
         this.$els.content.fadeIn();
       });
@@ -68,6 +70,14 @@ export default class Cards {
     });
 
     return new Bluebird(resolve => setTimeout(resolve, maxTime + 500));
+  }
+
+  playVideos() {
+    this.$els.videos.each((i, video) => video.play());
+  }
+
+  stopVideos() {
+    this.$els.videos.each((i, video) => video.pause());
   }
 
   getCardFromPos(col, row) {
