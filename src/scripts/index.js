@@ -15,3 +15,5 @@ import Cards from './cards';
 $('.js-fluidbox').fluidbox();
 
 const cards = new Cards();
+
+window.$ = $;

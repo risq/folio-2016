@@ -4,12 +4,12 @@
   left: $external-border-width;
   right: $external-border-width;
   height: 100%;
-  font-size: 2rem;
+  font-size: 1.8rem;
   pointer-events: none;
   display: none;
   @include font-serif();
 
-  &__inner {
+  &__wrapper {
     margin-left: percentage(1 / $grid-cols);
     padding: $external-border-width;
     pointer-events: auto;
@@ -17,5 +17,10 @@
     box-sizing: border-box;
     margin-right: -$external-border-width;
     background-color: $color-white;
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 96rem;
   }
 }

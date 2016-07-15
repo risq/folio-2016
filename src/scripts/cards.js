@@ -30,7 +30,16 @@ export default class Cards {
   onCardClick(e) {
     const $card = $(e.currentTarget);
     if (this.page === 'projects-select') {
-      this.viewProject($card);
+      this.viewProject($card)
+        .then(() => {
+          const targetProject = $card.attr('data-target-project');
+          const $targetProject = targetProject ? $(`#${targetProject}`) : null;
+
+          if ($targetProject && $targetProject.length) {
+            console.log($targetProject, $targetProject.offset());
+            $('body').scrollTop($targetProject.position().top);
+          }
+        });
     }
   }
 
@@ -46,7 +55,7 @@ export default class Cards {
 
   viewProject($projectCard) {
     this.$els.headerCard.removeClass('show-image');
-    this.propagate(this.getCardIndex($projectCard), 'flipped', [0])
+    return this.propagate(this.getCardIndex($projectCard), 'flipped', [0])
       .then(() => {
         this.stopVideos();
         this.$els.headerCard.addClass('card-header--show-nav');
