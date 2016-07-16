@@ -1,0 +1,60 @@
+.project-thumb {
+  background-color: $color-black;
+  position: relative;
+  overflow: hidden;
+
+  &:hover &__overlay ,
+  &:active &__overlay ,
+  &:focus &__overlay {
+
+      opacity: 1;
+
+  }
+
+  &--align-top-left.project-thumb video {
+    object-position: 0 0;
+  }
+
+  &--video.project-thumb {
+    background-color: $color-black;
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: fade-out($color-black, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+  }
+
+  &__overlay-inner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1.5vw;
+  }
+
+  &__title {
+    font-size: 1.5vw;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-size: 1vw;
+  }
+}
