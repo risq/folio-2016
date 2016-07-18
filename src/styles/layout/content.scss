@@ -22,5 +22,9 @@
   &__inner {
     position: relative;
     max-width: 96rem;
+
+    hr {
+      margin: 10rem 0;
+    }
   }
 }

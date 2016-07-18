@@ -1,21 +1,13 @@
 .project {
-  padding-bottom: 10rem;
-  margin-bottom: 10rem;
-  border-bottom: 2px solid $color-grey;
-
   &__title {
     @include font-mono();
     text-transform: uppercase;
-    margin: 4rem 0 2rem;
-    font-size: 3rem;
-  }
-
-  &:first-of-type &__title {
-    margin-top: 0;
+    margin: 0 0 1rem;
+    font-size: 3.2rem;
   }
 
   &__type {
-    @include font-mono(700);
+    @include font-mono(300);
   }
 
   &__image {
@@ -37,5 +29,31 @@
       display: inline-block;
       margin: 0 1rem 1rem 0;
     }
+  }
+}
+
+.project-desc {
+  font-size: 0;
+  margin-bottom: 2rem;
+
+  &__item {
+    display: inline-block;
+    margin-right: 2rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__label {
+    @include font-mono(700);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-right: .5rem;
+  }
+
+  &__content {
+    @include font-mono(500);
+    font-size: 1.4rem;
   }
 }

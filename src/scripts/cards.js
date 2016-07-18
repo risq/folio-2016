@@ -39,11 +39,10 @@ export default class Cards {
       if ($targetProject && $targetProject.length) {
         this.viewProject($card)
           .then(() => {
-            $('body').scrollTop($targetProject.position().top);
+            $('body').scrollTop($targetProject.offset().top);
             this.page = 'project';
           });
       }
-
     }
   }
 
