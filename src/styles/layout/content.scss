@@ -8,6 +8,7 @@
   pointer-events: none;
   display: none;
   @include font-serif();
+  transition: opacity .5s ease-in-out;
 
   &__wrapper {
     margin-left: percentage(1 / $grid-cols);
@@ -22,9 +23,22 @@
   &__inner {
     position: relative;
     max-width: 96rem;
+    padding-bottom: 10rem;
 
     hr {
+      border-style: solid;
+      border-color: $color-grey;
       margin: 10rem 0;
     }
+  }
+
+  &--pre-show.content {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &--show.content {
+    display: block;
   }
 }

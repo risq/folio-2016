@@ -39,7 +39,12 @@ export default class Cards {
       if ($targetProject && $targetProject.length) {
         this.viewProject($card)
           .then(() => {
-            $('body').scrollTop($targetProject.offset().top);
+            $('body').scrollTop($targetProject.position().top);
+
+            this.$els.content
+              .removeClass('content--pre-show')
+              .addClass('content--show');
+
             this.page = 'project';
           });
       }
@@ -73,12 +78,13 @@ export default class Cards {
 
   viewProject($projectCard) {
     this.$els.headerCard.removeClass('show-image');
+
     return this.propagate(this.getCardIndex($projectCard), [0], $card => $card.addClass('flipped'))
       .then(() => {
         this.stopVideos();
         this.$els.headerCard.addClass('card-header--show-nav');
-        this.$els.content.fadeIn();
-      });
+        this.$els.content.addClass('content--pre-show');
+      }).delay(500);
   }
 
   propagate(centerIndex, exclude = [], callback) {
