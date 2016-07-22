@@ -5,14 +5,14 @@ if (module.hot) {
 }
 
 import 'babel-polyfill';
-import 'fluidbox';
+import 'simplezoom';
 import 'velocity-animate';
 
 import '../styles/index.scss';
 
 import Cards from './cards';
 
-$('.js-fluidbox').fluidbox();
+$('.js-simplezoom').simplezoom();
 
 const cards = new Cards();
 
