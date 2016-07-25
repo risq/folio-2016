@@ -5,11 +5,10 @@ $lightness: 4.5%;
 .card {
   perspective: 1000px;
 
-  &:not(.flipped) &__front:hover,
-  &:not(.flipped) &__front:focus,
-  &:not(.flipped).active &__front {
+  &:not(.show-image) &__front:hover,
+  &:not(.show-image) &__front:focus {
     transition: all .2s ease-in-out;
-    transform: scale(.9);
+    transform: scale(0.9) rotateY(0);
   }
 
   &:not(.flipped):not(.active):active &__front {

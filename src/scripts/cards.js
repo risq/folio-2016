@@ -55,9 +55,8 @@ export default class Cards {
     const index = this.getCardIndex(this.$els.projectsCard);
 
     if (this.page === 'index') {
-      this.$els.projectsCard.addClass('active');
       this.playVideos();
-      this.propagate(index, [0, index], $card => $card.addClass('show-image'))
+      this.propagate(index, [0], $card => $card.addClass('show-image'))
         .then(() => {
           this.page = 'projects-select';
         });
@@ -68,7 +67,6 @@ export default class Cards {
     const index = this.getCardIndex(this.$els.projectsBack);
 
     if (this.page === 'projects-select') {
-      this.$els.projectsCard.removeClass('active');
       this.propagate(index, [], $card => $card.removeClass('show-image'))
         .then(() => {
           this.page = 'index';
