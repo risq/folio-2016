@@ -171,7 +171,7 @@
                 dokkuboard
               </div>
               <div class="project-thumb__subtitle">
-                web
+                webapp
               </div>
             </div>
           </div>
@@ -538,6 +538,41 @@
           <img class="project__image" src="/images/oz2016.jpg"/>
           <p>
             Développé à Oz Conseil, le Générateur de Bonnes Résolutions a été créé pour la nouvelle année 2016. Il s'agit d'un mini site web générant des "bonnes résolutions" aléatoires en secouant une boule à neige. Le site utilise Pixi.js (librairie 2D utilisant un moteur de rendu webgl ou canvas) et fonctionne aussi sur mobile et tablette.
+          </p>
+        </article>
+        <hr>
+        <article class="project" id="dokkuboard">
+          <h3 class="project__title">
+            <span class="project__type">Webapp</span>/dokkuboard [WIP]
+          </h3>
+          <aside class="project-desc">
+            <div class="project-desc__item">
+              <span class="project-desc__label">Contexte:</span>
+              <span class="project-desc__content">Projet personnel</span>
+            </div>
+            <div class="project-desc__item">
+              <span class="project-desc__label">Rôle:</span>
+              <span class="project-desc__content">Conception &amp; Développement</span>
+            </div>
+            <div class="project-desc__item">
+              <span class="project-desc__label">Date:</span>
+              <span class="project-desc__content">2016</span>
+            </div>
+            <div class="project-desc__item">
+              <span class="project-desc__label">url:</span>
+              <span class="project-desc__content">
+                <a href="https://github.com/risq/dokkuboard">
+                  github.com/risq/dokkuboard
+                </a>
+              </span>
+            </div>
+          </aside>
+          <img class="project__image" src="/images/dokkuboard.jpg"/>
+          <p>
+            Toujours en développement, dokkuboard est une application web permettant de contrôler et "monitorer" un serveur dokku (self-hosted PAAS, à la Heroku, basé sur docker). L'application repose sur un serveur nodejs qui communique avec l'instance de dokku par ssh et met à disposition une API HTTP. L'application web, développée en vuejs, permet d'intéragir via cette API, de suivre l'état des containers en temps réel, de lancer des commandes dokku et même de démarrer des sessions ssh directement depuis le navigateur.
+          </p>
+          <p>
+            Le but de ce projet est de fournir une interface de gestion complète, accessible et simple d'utilisation à dokku, qui ne bénéficie pour l'instant d'aucune autre interface que la ligne de commande.
           </p>
         </article>
         <hr>
