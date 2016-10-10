@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "build": "webpack --config webpack-prod.config.js --colors",
-    "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors"
+    "build": "npm run thumbnails && webpack --config webpack-prod.config.js --colors",
+    "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors",
+    "thumbnails": "mogrify -path src/static/images/small -thumbnail 480x270 src/static/images/*.jpg"
   },
   "repository": {
     "type": "git",
