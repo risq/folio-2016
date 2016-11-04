@@ -35,7 +35,7 @@
           <div class="card-nav">
             <div class="card-nav__inner">
               <h2 class="card-nav__title">
-                Projets
+                Retour
               </h2>
             </div>
           </div>
@@ -187,7 +187,7 @@
       </div>
     </div>
     <div class="grid__row">
-      <div class="grid__item card card--color-3 js-card js-projects-back" data-cardIndex="8">
+      <div class="grid__item card card--color-3 js-card js-projects-back" data-cardIndex="8" data-target-project="fiae">
         <div class="card__front">
           <div class="card-nav">
             <div class="card-nav__inner">
@@ -198,12 +198,20 @@
           </div>
         </div>
         <div class="card__back"></div>
-        <div class="card__thumb project-thumb">
-          <div class="card-nav">
-            <div class="card-nav__inner">
-              <h2 class="card-nav__title">
-                Retour
-              </h2>
+        <div class="card__thumb project-thumb project-thumb--video">
+          <video class="js-card-video" loop>
+            <source src="/videos/fiae.mp4" type="video/mp4">
+            <source src="/videos/fiae.webm" type="video/webm">
+              <img src="/images/fiae.jpg"/>
+          </video>
+          <div class="project-thumb__overlay">
+            <div class="project-thumb__overlay-inner">
+              <div class="project-thumb__title">
+                Michelin Formula E
+              </div>
+              <div class="project-thumb__subtitle">
+                site web
+              </div>
             </div>
           </div>
         </div>
@@ -436,6 +444,47 @@
           </div>
         </article>
         <hr>
+        <article class="project" id="fiae">
+          <h3 class="project__title">
+            <span class="project__type">Web</span>/Michelin Formula E
+          </h3>
+          <aside class="project-desc">
+            <div class="project-desc__item">
+              <span class="project-desc__label">Contexte:</span>
+              <span class="project-desc__content">Oz Conseil</span>
+            </div>
+            <div class="project-desc__item">
+              <span class="project-desc__label">Rôle:</span>
+              <span class="project-desc__content">Développement &amp; front</span>
+            </div>
+            <div class="project-desc__item">
+              <span class="project-desc__label">Date:</span>
+              <span class="project-desc__content">2015</span>
+            </div>
+          </aside>
+          <img class="project__image" src="/images/fiae_2.jpg"/>
+          <p>
+            Michelin FIA-E (AutoRacingLive) est un site web relayant la
+            compétition FIA Formula E, championnat de formules électriques
+            organisé par la FIA, fédération internationale de l’automobile.
+          </p>
+          <p>
+            À l’occasion du premier championnat, Michelin souhaite relayer
+            l’univers de cette course à travers un dispositif digital live.
+            Le site permet de suivre la course, d'accéder aux tableaux des
+            scores et consulter des actualités, vidéos et contenus multimédia en
+            rapport avec la compétition, le tout en direct pendant les courses.
+          </p>
+          <div class="project__gallery">
+            <a href="/images/fiae.jpg" class="js-simplezoom">
+              <img class="project__image" src="/images/small/fiae.jpg"/>
+            </a>
+            <a href="/images/fiae_1.jpg" class="js-simplezoom">
+              <img class="project__image" src="/images/small/fiae_1.jpg"/>
+            </a>
+          </div>
+        </article>
+        <hr>
         <article class="project" id="splash">
           <h3 class="project__title">
             <span class="project__type">Arduino</span>/Splash
@@ -464,6 +513,7 @@
           <p>
             L’application est divisée en deux parties. L’une permet de contrôler le débit de la peinture, et la seconde les mouvements de la toile. La première n’est accessible que sur le lieu de l’installation : l’utilisateur voit donc la peinture tomber sur la toile. La deuxième est utilisée à distance. L’utilisateur voit la toile grâce à une caméra placée au-dessus de celle-ci. Grâce à l’accéléromètre de son téléphone, il contrôle cette dernière et dirige le tracé de la peinture.
           </p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/LCPlRbNVJuw" frameborder="0" allowfullscreen></iframe>
         </article>
         <hr>
         <article class="project" id="youka">
