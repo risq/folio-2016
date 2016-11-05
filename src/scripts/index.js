@@ -11,9 +11,11 @@ import 'velocity-animate';
 import '../styles/index.scss';
 
 import Cards from './cards';
+import Menu from './menu';
 
 $('.js-simplezoom').simplezoom();
 
 const cards = new Cards();
+const menu = new Menu();
 
 window.$ = $;

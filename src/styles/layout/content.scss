@@ -32,6 +32,18 @@
     }
   }
 
+  &__menu {
+    position: fixed;
+    top: 2vw;
+    bottom: 2vw;
+    width: percentage(1 / $grid-cols);
+
+    nav {
+      padding-top: 35vh;
+      height: 100%;
+    }
+  }
+
   &--pre-show.content {
     display: block;
     opacity: 0;
