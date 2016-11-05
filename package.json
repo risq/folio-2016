@@ -57,6 +57,8 @@
   "dependencies": {
     "babel-polyfill": "^6.9.0",
     "bluebird": "^3.4.1",
+    "debounce": "^1.0.0",
+    "eventemitter3": "^2.0.2",
     "jquery": "^3.1.0",
     "sass-mq": "^3.2.9",
     "simplezoom": "git+https://github.com/risq/simplezoom.git",

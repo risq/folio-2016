@@ -1,4 +1,5 @@
 import Bluebird from 'bluebird';
+import EventEmitter from 'eventemitter3';
 
 const gridRows = 3;
 const gridCols = 4;
@@ -10,6 +11,7 @@ export default class Cards {
     this.initEvents();
 
     this.page = 'index';
+    this.events = new EventEmitter();
   }
 
   initEls() {
@@ -46,6 +48,8 @@ export default class Cards {
               .addClass('content--show');
 
             this.page = 'project';
+
+            this.events.emit('projects:show');
           });
       }
     }
