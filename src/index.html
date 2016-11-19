@@ -10,6 +10,11 @@
   <div class="grid">
     <div class="grid__row">
       <div class="grid__item card card-header js-card js-card-header" data-cardIndex="0">
+        <div class="card-header__back-wrapper">
+          <a class="card-header__back-button" href="#">
+            &lt; Retour au menu
+          </a>
+        </div>
         <div class="card__front">
           <h1>
             <span class="card-header__title">Valentin Ledrapier</span>
@@ -20,7 +25,7 @@
         <div class="card__back"></div>
         <div class="card__thumb project-thumb"></div>
       </div>
-      <div class="grid__item card card--color-1 js-card js-card-projects" data-cardIndex="1">
+      <div class="grid__item card card--color-1 js-card js-projects-back js-card-projects" data-cardIndex="1">
         <div class="card__front">
           <div class="card-nav">
             <div class="card-nav__inner">
@@ -187,7 +192,7 @@
       </div>
     </div>
     <div class="grid__row">
-      <div class="grid__item card card--color-3 js-card js-projects-back" data-cardIndex="8" data-target-project="fiae">
+      <div class="grid__item card card--color-3 js-card" data-cardIndex="8" data-target-project="fiae">
         <div class="card__front">
           <div class="card-nav">
             <div class="card-nav__inner">
@@ -728,47 +733,49 @@
         </article>
       </div>
     </div>
-    <div class="content__menu">
-      <nav class="project-menu">
-        <ul>
-          <li class="project-menu__item">
-            <a href="#dihh" class="project-menu__link js-menu-link active"><span class="project-menu__type">WebGL</span>/Digging Into Hip Hop</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#anamorph" class="project-menu__link js-menu-link"><span class="project-menu__type">Unity</span>/Anamorph</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#lccp" class="project-menu__link js-menu-link"><span class="project-menu__type">Mobile</span>/Lexmark Cartridge Collection Program</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#voilebp" class="project-menu__link js-menu-link"><span class="project-menu__type">Web</span>/Voile Banque Populaire</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#splash" class="project-menu__link js-menu-link"><span class="project-menu__type">Arduino</span>/Splash</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#fiae" class="project-menu__link js-menu-link"><span class="project-menu__type">Web</span>/Michelin Formula E</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#maze" class="project-menu__link js-menu-link"><span class="project-menu__type">Unity</span>/Maze [WIP]</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#investigator" class="project-menu__link js-menu-link"><span class="project-menu__type">Nodejs</span>/Investigator</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#oz2015" class="project-menu__link js-menu-link"><span class="project-menu__type">WebGL</span>/Ensemble, dessinons 2015</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#oz2016" class="project-menu__link js-menu-link"><span class="project-menu__type">WebGL</span>/Générateur de bonnes résolutions</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#dokkuboard" class="project-menu__link js-menu-link"><span class="project-menu__type">Webapp</span>/dokkuboard [WIP]</a>
-          </li>
-          <li class="project-menu__item">
-            <a href="#youka" class="project-menu__link js-menu-link"><span class="project-menu__type">Objet connecté</span>/Youka</a>
-          </li>
-        </ul>
-      </nav>
+    <div class="content__menu-wrapper">
+      <div class="content__menu-inner">
+        <nav class="project-menu">
+          <ul>
+            <li class="project-menu__item">
+              <a href="#dihh" class="project-menu__link js-menu-link active"><span class="project-menu__type">WebGL</span>/Digging Into Hip Hop</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#anamorph" class="project-menu__link js-menu-link"><span class="project-menu__type">Unity</span>/Anamorph</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#lccp" class="project-menu__link js-menu-link"><span class="project-menu__type">Mobile</span>/Lexmark Cartridge Collection Program</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#voilebp" class="project-menu__link js-menu-link"><span class="project-menu__type">Web</span>/Voile Banque Populaire</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#splash" class="project-menu__link js-menu-link"><span class="project-menu__type">Arduino</span>/Splash</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#fiae" class="project-menu__link js-menu-link"><span class="project-menu__type">Web</span>/Michelin Formula E</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#maze" class="project-menu__link js-menu-link"><span class="project-menu__type">Unity</span>/Maze [WIP]</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#investigator" class="project-menu__link js-menu-link"><span class="project-menu__type">Nodejs</span>/Investigator</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#oz2015" class="project-menu__link js-menu-link"><span class="project-menu__type">WebGL</span>/Ensemble, dessinons 2015</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#oz2016" class="project-menu__link js-menu-link"><span class="project-menu__type">WebGL</span>/Générateur de bonnes résolutions</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#dokkuboard" class="project-menu__link js-menu-link"><span class="project-menu__type">Webapp</span>/dokkuboard [WIP]</a>
+            </li>
+            <li class="project-menu__item">
+              <a href="#youka" class="project-menu__link js-menu-link"><span class="project-menu__type">Objet connecté</span>/Youka</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </main>
 </body>

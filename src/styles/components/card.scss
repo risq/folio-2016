@@ -5,8 +5,8 @@ $lightness: 4.5%;
 .card {
   perspective: 1000px;
 
-  &:not(.show-image) &__front:hover,
-  &:not(.show-image) &__front:focus {
+  &:not(.show-secondary) &__front:hover,
+  &:not(.show-secondary) &__front:focus {
     transition: all .2s ease-in-out;
     transform: scale(0.9) rotateY(0);
   }
@@ -37,7 +37,7 @@ $lightness: 4.5%;
     }
   }
 
-  &.show-image .card {
+  &.show-secondary .card {
     &__thumb {
       display: block;
       transform: scale(1) rotateY(0deg);
@@ -50,7 +50,7 @@ $lightness: 4.5%;
   }
 
   &.flipped,
-  &.flipped.show-image {
+  &.flipped.show-secondary {
     .card__thumb {
       transform: scale(1) rotateY(180deg);
       transition: all .5s ease-in-out;

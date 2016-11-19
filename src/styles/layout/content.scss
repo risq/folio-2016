@@ -33,14 +33,23 @@
   }
 
   &__menu {
-    position: fixed;
-    top: 2vw;
-    bottom: 2vw;
-    width: percentage(1 / $grid-cols);
 
-    nav {
+    &-wrapper {
+      position: fixed;
+      top: 2vw;
+      bottom: 2vw;
+      width: percentage(1 / $grid-cols);
+    }
+
+    &-inner {
       padding-top: 35vh;
       height: 100%;
+      position: relative;
+
+      nav {
+        height: 100%;
+        position: relative;
+      }
     }
   }
 

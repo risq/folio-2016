@@ -59,7 +59,32 @@
     @include font-mono(300);
   }
 
-  &--show-nav {
+  &__back-wrapper {
+    width: 100%;
+    height: 100%;
+    display: table;
+  }
+
+  &__back-button {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    color: $color-white;
+    text-decoration: none;
+    @include font-mono(300);
+  }
+
+  &--content-mode {
+    &:hover {
+      .card__front {
+        opacity: 0;
+        pointer-events: none;
+        // transform: scale(.85) rotateY(0);
+      }
+    }
+    
     .card-header__nav {
       top: 0;
       opacity: 1;

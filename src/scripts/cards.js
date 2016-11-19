@@ -60,7 +60,7 @@ export default class Cards {
 
     if (this.page === 'index') {
       this.playVideos();
-      this.propagate(index, [0], $card => $card.addClass('show-image'))
+      this.propagate(index, [0], $card => $card.addClass('show-secondary'))
         .then(() => {
           this.page = 'projects-select';
         });
@@ -71,7 +71,7 @@ export default class Cards {
     const index = this.getCardIndex(this.$els.projectsBack);
 
     if (this.page === 'projects-select') {
-      this.propagate(index, [], $card => $card.removeClass('show-image'))
+      this.propagate(index, [], $card => $card.removeClass('show-secondary'))
         .then(() => {
           this.page = 'index';
         });
@@ -79,12 +79,12 @@ export default class Cards {
   }
 
   viewProject($projectCard) {
-    this.$els.headerCard.removeClass('show-image');
+    this.$els.headerCard.removeClass('show-secondary');
 
     return this.propagate(this.getCardIndex($projectCard), [0], $card => $card.addClass('flipped'))
       .then(() => {
         this.stopVideos();
-        this.$els.headerCard.addClass('card-header--show-nav');
+        this.$els.headerCard.addClass('card-header--content-mode');
         this.$els.content.addClass('content--pre-show');
       }).delay(500);
   }
