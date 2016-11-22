@@ -1,5 +1,8 @@
 import Bluebird from 'bluebird';
 import EventEmitter from 'eventemitter3';
+import transceiver from 'transceiver';
+
+const router = transceiver.channel('router');
 
 const gridRows = 3;
 const gridCols = 4;
@@ -10,7 +13,7 @@ export default class Cards {
     this.initEls();
     this.initEvents();
 
-    this.page = 'index';
+    this.projectSelectView = false;
     this.events = new EventEmitter();
   }
 
@@ -20,7 +23,6 @@ export default class Cards {
       videos: $('.js-card-video'),
       headerCard: $('.js-card-header'),
       projectsCard: $('.js-card-projects'),
-      content: $('.js-content'),
       projectsBack: $('.js-projects-back'),
     };
   }
@@ -29,26 +31,21 @@ export default class Cards {
     this.$els.cards.on('click', this.onCardClick.bind(this));
     this.$els.projectsCard.on('click', this.onProjectsCardClick.bind(this));
     this.$els.projectsBack.on('click', this.onProjectsBackClick.bind(this));
+    this.$els.headerCard.on('click', this.onHeaderCardClick.bind(this));
   }
 
   onCardClick(e) {
     const $card = $(e.currentTarget);
 
-    if (this.page === 'projects-select') {
+    if (this.projectSelectView) {
       const targetProject = $card.attr('data-target-project');
       const $targetProject = targetProject ? $(`#${targetProject}`) : null;
 
       if ($targetProject && $targetProject.length) {
-        this.viewProject($card)
+        this.viewProject($card, $targetProject)
           .then(() => {
-            $('body').scrollTop($targetProject.position().top);
-
-            this.$els.content
-              .removeClass('content--pre-show')
-              .addClass('content--show');
-
-            this.page = 'project';
-
+            this.$els.cards.removeClass('show-secondary');
+            this.projectSelectView = false;
             this.events.emit('projects:show');
           });
       }
@@ -58,11 +55,11 @@ export default class Cards {
   onProjectsCardClick(e) {
     const index = this.getCardIndex(this.$els.projectsCard);
 
-    if (this.page === 'index') {
+    if (!this.projectSelectView) {
       this.playVideos();
       this.propagate(index, [0], $card => $card.addClass('show-secondary'))
         .then(() => {
-          this.page = 'projects-select';
+          this.projectSelectView = true;
         });
     }
   }
@@ -70,23 +67,33 @@ export default class Cards {
   onProjectsBackClick(e) {
     const index = this.getCardIndex(this.$els.projectsBack);
 
-    if (this.page === 'projects-select') {
+    if (this.projectSelectView) {
       this.propagate(index, [], $card => $card.removeClass('show-secondary'))
         .then(() => {
-          this.page = 'index';
+          this.projectSelectView = false;
         });
     }
   }
 
-  viewProject($projectCard) {
+  onHeaderCardClick(e) {
+    router.request('navigateToHome');
+    this.$els.headerCard.removeClass('card-header--content-mode');
+    
+    return this.propagate(0, [0], $card => $card.removeClass('flipped'))
+      .then(() => {
+        this.playVideos();
+      });
+  }
+
+  viewProject($projectCard, $targetProject) {
     this.$els.headerCard.removeClass('show-secondary');
 
     return this.propagate(this.getCardIndex($projectCard), [0], $card => $card.addClass('flipped'))
       .then(() => {
         this.stopVideos();
         this.$els.headerCard.addClass('card-header--content-mode');
-        this.$els.content.addClass('content--pre-show');
-      }).delay(500);
+      })
+      .then(() => router.request('navigateToProject', $targetProject));
   }
 
   propagate(centerIndex, exclude = [], callback) {

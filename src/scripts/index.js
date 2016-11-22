@@ -12,11 +12,13 @@ import 'velocity-animate';
 
 import '../styles/index.scss';
 
+import Router from './router';
 import Cards from './cards';
 import Menu from './menu';
 
 $('.js-simplezoom').simplezoom();
 
+const router = new Router();
 const cards = new Cards();
 const menu = new Menu();
 
