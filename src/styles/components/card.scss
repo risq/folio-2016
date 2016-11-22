@@ -26,13 +26,13 @@ $lightness: 4.5%;
   }
 
   &.flipped {
-    .card {
-      &__front {
-        transform: scale(1) rotateY(180deg);
-      }
-
+    .card, .show-secondary.card {
       &__back {
         transform: scale(1.01) rotateY(360deg);
+      }
+
+      &__thumb {
+        display: none;
       }
     }
   }
@@ -51,6 +51,9 @@ $lightness: 4.5%;
 
   &.flipped,
   &.flipped.show-secondary {
+    .card__front {
+      transform: scale(1) rotateY(180deg);
+    }
     .card__thumb {
       transform: scale(1) rotateY(180deg);
       transition: all .5s ease-in-out;
