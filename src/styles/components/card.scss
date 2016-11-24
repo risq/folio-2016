@@ -37,15 +37,25 @@ $lightness: 4.5%;
     }
   }
 
-  &.show-secondary .card {
-    &__thumb {
-      display: block;
-      transform: scale(1) rotateY(0deg);
-      transition: all .5s .15s ease-in-out;
-    }
+  &.show-secondary {
+    cursor: pointer;
 
-    &__front {
-      transform: scale(0) rotateY(0deg);
+    .card {
+      &__thumb {
+        display: block;
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+        transition: all .5s .15s ease-in-out;
+      }
+
+      &__front {
+        transform: scale(0) rotateY(0deg);
+      }
+
+      &__thumb.project-thumb--backToHomeLink .card-nav {
+        opacity: 1;
+        transition: all 1s 1s ease-in-out;
+      }
     }
   }
 
@@ -95,6 +105,7 @@ $lightness: 4.5%;
     transform: scale(0) rotateY(0deg);
     overflow: hidden;
     transition: all .5s ease-in-out;
+    opacity: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {

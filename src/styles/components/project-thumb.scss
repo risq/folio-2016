@@ -1,5 +1,5 @@
 .project-thumb {
-  background-color: $color-black;
+  background-color: $color-darkgrey;
   position: relative;
   overflow: hidden;
 
@@ -9,12 +9,16 @@
     opacity: 1;
   }
 
+  &--backToHomeLink.card__thumb {
+    background-color: lighten($color-darkgrey, 2%);
+  }
+
   &--align-top-left.project-thumb video {
     object-position: 0 0;
   }
 
   &--video.project-thumb {
-    background-color: $color-black;
+    background-color: $color-darkgrey;
 
     video {
       position: absolute;

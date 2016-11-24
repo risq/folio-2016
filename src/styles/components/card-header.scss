@@ -3,7 +3,28 @@
   overflow: hidden;
 
   .card__front {
-    background-color: #222;
+    background-color: $color-darkgrey;
+  }
+
+  &.card:not(.show-secondary):not(.card-header--content-mode) .card__front:hover {
+    transform: scale(1) rotate(0);
+  }
+
+  &--content-mode {
+    cursor: pointer;
+
+    &:hover {
+      .card__front {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(.85) rotateY(0);
+      }
+    }
+
+    .card-header__nav {
+      top: 0;
+      opacity: 1;
+    }
   }
 
   &__title {
@@ -74,20 +95,5 @@
     color: $color-white;
     text-decoration: none;
     @include font-mono(300);
-  }
-
-  &--content-mode {
-    &:hover {
-      .card__front {
-        opacity: 0;
-        pointer-events: none;
-        // transform: scale(.85) rotateY(0);
-      }
-    }
-    
-    .card-header__nav {
-      top: 0;
-      opacity: 1;
-    }
   }
 }

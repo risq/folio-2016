@@ -31,4 +31,38 @@
       transform: translateX(-50%);
     }
   }
+
+  &--backlink {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+      .card-nav__title {
+        color: $color-white;
+
+        &:before {
+          left: -2.5vw;
+        }
+      }
+    }
+
+    .card-nav__title {
+      color: $color-grey;
+      transition: all .3s ease-in-out;
+
+      &:before {
+        content: "<";
+        display: block;
+        position: absolute;
+        left: -2vw;
+        top: -0.3vw;
+        font-size: 2.5vw;
+        transition: left .3s ease-in-out;
+        @include font-mono();
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
 }

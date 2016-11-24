@@ -8,7 +8,7 @@ export default class Router {
   constructor() {
     this.initEls();
 
-    this.page = 'index';
+    this.page = 'home';
     channel.reply({
       navigateToHome: this.navigateToHome.bind(this),
       navigateToProject: this.navigateToProject.bind(this),
@@ -23,14 +23,15 @@ export default class Router {
   }
 
   navigateToHome() {
-    console.log('navigateToHome');
-    this.$els.content.addClass('content--pre-show');
-    setTimeout(() => {
-      this.$els.content
+    if (this.page !== 'home') {
+      this.$els.content.addClass('content--pre-show');
+      setTimeout(() => {
+        this.$els.content
         .removeClass('content--show')
         .removeClass('content--pre-show');
-    }, 500);
-    this.page = 'home';
+      }, 500);
+      this.page = 'home';
+    }
   }
 
   navigateToProject($targetProject) {
