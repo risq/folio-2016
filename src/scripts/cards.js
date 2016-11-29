@@ -15,6 +15,8 @@ export default class Cards {
 
     this.projectSelectView = false;
     this.events = new EventEmitter();
+
+    setTimeout(() => this.initCards(), 500);
   }
 
   initEls() {
@@ -32,6 +34,10 @@ export default class Cards {
     this.$els.projectsCard.on('click', this.onProjectsCardClick.bind(this));
     this.$els.projectsBack.on('click', this.onProjectsBackClick.bind(this));
     this.$els.headerCard.on('click', this.onHeaderCardClick.bind(this));
+  }
+
+  initCards() {
+    return this.propagate(0, [], $card => $card.removeClass('flipped'));
   }
 
   onCardClick(e) {
@@ -57,7 +63,7 @@ export default class Cards {
 
     if (!this.projectSelectView) {
       this.playVideos();
-      this.propagate(index, [0], $card => $card.addClass('show-secondary'))
+      return this.propagate(index, [0], $card => $card.addClass('show-secondary'))
         .then(() => {
           this.projectSelectView = true;
         });
@@ -68,7 +74,7 @@ export default class Cards {
     const index = this.getCardIndex(this.$els.projectsBack);
 
     if (this.projectSelectView) {
-      this.propagate(index, [], $card => $card.removeClass('show-secondary'))
+      return this.propagate(index, [], $card => $card.removeClass('show-secondary'))
         .then(() => {
           this.projectSelectView = false;
         });
@@ -76,9 +82,10 @@ export default class Cards {
   }
 
   onHeaderCardClick(e) {
+    e.preventDefault();
     router.request('navigateToHome');
     this.$els.headerCard.removeClass('card-header--content-mode');
-    
+
     return this.propagate(0, [0], $card => $card.removeClass('flipped'))
       .then(() => {
         this.playVideos();
@@ -103,6 +110,8 @@ export default class Cards {
     this.$els.cards.each((i, el) => {
       const $card = $(el);
       const pos = this.getPosFromIndex(i);
+
+      console.log(i, $card);
 
       if (exclude.indexOf(i) === -1) {
         const time = this.getDistance(centerPos, pos) * propagationTime;

@@ -2,6 +2,7 @@
     display: table;
     height: 100%;
     width: 100%;
+    cursor: pointer;
 
   &__inner {
     height: 100%;
@@ -9,6 +10,8 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    text-decoration: none;
+    color: $color-white;
   }
 
   &__title {
