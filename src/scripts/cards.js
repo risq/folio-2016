@@ -25,6 +25,7 @@ export default class Cards {
       videos: $('.js-card-video'),
       headerCard: $('.js-card-header'),
       projectsCard: $('.js-card-projects'),
+      skillsCard: $('.js-card-skills'),
       projectsBack: $('.js-projects-back'),
     };
   }
@@ -32,6 +33,7 @@ export default class Cards {
   initEvents() {
     this.$els.cards.on('click', this.onCardClick.bind(this));
     this.$els.projectsCard.on('click', this.onProjectsCardClick.bind(this));
+    this.$els.skillsCard.on('click', this.onSkillsCardClick.bind(this));
     this.$els.projectsBack.on('click', this.onProjectsBackClick.bind(this));
     this.$els.headerCard.on('click', this.onHeaderCardClick.bind(this));
   }
@@ -70,6 +72,15 @@ export default class Cards {
     }
   }
 
+  onSkillsCardClick(e) {
+    if (!this.projectSelectView) {
+      this.viewSkills()
+        .then(() => {
+
+        });
+    }
+  }
+
   onProjectsBackClick(e) {
     const index = this.getCardIndex(this.$els.projectsBack);
 
@@ -103,6 +114,17 @@ export default class Cards {
       .then(() => router.request('navigateToProject', $targetProject));
   }
 
+  viewSkills() {
+    this.$els.headerCard.removeClass('show-secondary');
+
+    return this.propagate(this.getCardIndex(this.$els.skillsCard), [0], $card => $card.addClass('flipped'))
+      .then(() => {
+        this.stopVideos();
+        this.$els.headerCard.addClass('card-header--content-mode');
+      })
+      .then(() => router.request('navigateToSkills'));
+  }
+
   propagate(centerIndex, exclude = [], callback) {
     const centerPos = this.getPosFromIndex(centerIndex);
     let maxTime = 0;
@@ -110,8 +132,6 @@ export default class Cards {
     this.$els.cards.each((i, el) => {
       const $card = $(el);
       const pos = this.getPosFromIndex(i);
-
-      console.log(i, $card);
 
       if (exclude.indexOf(i) === -1) {
         const time = this.getDistance(centerPos, pos) * propagationTime;

@@ -2,13 +2,13 @@
   position: absolute;
   top: 0;
   left: $external-border-width;
-  right: $external-border-width;
+  right: 0;
   height: 100%;
   font-size: 1.8rem;
+  overflow: hidden;
   pointer-events: none;
-  display: none;
   @include font-serif();
-  transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out, height 0s ease;
 
   &__wrapper {
     margin-left: percentage(1 / $grid-cols);
@@ -16,8 +16,8 @@
     pointer-events: auto;
     height: 100%;
     box-sizing: border-box;
-    margin-right: -$external-border-width;
     background-color: $color-white;
+    overflow: auto;
   }
 
   &__inner {
@@ -33,12 +33,13 @@
   }
 
   &__menu {
-
     &-wrapper {
       position: fixed;
       top: 2vw;
       bottom: 2vw;
       width: percentage(1 / $grid-cols);
+      left: 2vw;
+      transition: left .5s ease-in-out;
     }
 
     &-inner {
@@ -53,13 +54,13 @@
     }
   }
 
-  &--pre-show.content {
-    display: block;
+  &--hidden.content {
+    height: 0;
     opacity: 0;
-    pointer-events: none;
-  }
+    transition: opacity .5s ease-in-out, height 0s ease .5s, overflow 0s ease .5s;
 
-  &--show.content {
-    display: block;
+    .content__menu-wrapper {
+      left: -100%;
+    }
   }
 }

@@ -1,7 +1,5 @@
 'use strict';
 
-import debounce from 'debounce';
-
 if (module.hot) {
   module.hot.accept();
 }
@@ -9,6 +7,8 @@ if (module.hot) {
 import 'babel-polyfill';
 import 'simplezoom';
 import 'velocity-animate';
+
+import debounce from 'debounce';
 
 import '../styles/index.scss';
 

@@ -1,6 +1,6 @@
 import debounce from 'debounce';
 
-const scrollSpyMargin = 40;
+const scrollSpyMargin = 100;
 
 export default class Menu {
   constructor() {
@@ -11,14 +11,14 @@ export default class Menu {
 
   initEls() {
     this.$els = {
-      body: $('body'),
+      contentWrapper: $('.js-contentWrapper'),
       links: $('.js-menu-link'),
     };
   }
 
   initEvents() {
     this.$els.links.on('click', this.onLinkClick.bind(this));
-    $(document).on('scroll', debounce(this.onScroll.bind(this), 100));
+    this.$els.contentWrapper.on('scroll', debounce(this.onScroll.bind(this), 100));
   }
 
   initScrollSpy() {
@@ -36,7 +36,7 @@ export default class Menu {
     const $targetProject = $($link.attr('href'));
 
     if ($targetProject && $targetProject.length) {
-      $('body').animate({
+      this.$els.contentWrapper.animate({
         scrollTop: $targetProject.position().top,
       });
     }
@@ -45,8 +45,8 @@ export default class Menu {
   }
 
   onScroll(e) {
-    console.log('onScroll');
-    const scrollTop = this.$els.body.scrollTop();
+    const scrollTop = this.$els.contentWrapper.scrollTop();
+    console.log('onScroll', scrollTop);
     const link = this.offsets.find(project => scrollTop > project.offset).link;
     this.$els.links.not(link).removeClass('active');
     $(link).addClass('active');

@@ -63,6 +63,6 @@
     "sass-mq": "^3.2.9",
     "simplezoom": "git+https://github.com/risq/simplezoom.git",
     "transceiver": "^0.3.4",
-    "velocity-animate": "^1.2.3"
+    "velocity-animate": "^1.3.1"
   }
 }
