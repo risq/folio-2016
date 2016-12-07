@@ -7,7 +7,6 @@
   font-size: 1.8rem;
   overflow: hidden;
   pointer-events: none;
-  @include font-serif();
   transition: opacity .5s ease-in-out, height 0s ease;
 
   &__wrapper {
@@ -40,6 +39,12 @@
       width: percentage(1 / $grid-cols);
       left: 2vw;
       transition: left .5s ease-in-out;
+      transition-delay: .25s;
+
+      &.hidden {
+        left: -100%;
+        transition-delay: 0s;
+      }
     }
 
     &-inner {
@@ -54,13 +59,9 @@
     }
   }
 
-  &--hidden.content {
+  &.hidden {
     height: 0;
     opacity: 0;
     transition: opacity .5s ease-in-out, height 0s ease .5s, overflow 0s ease .5s;
-
-    .content__menu-wrapper {
-      left: -100%;
-    }
   }
 }

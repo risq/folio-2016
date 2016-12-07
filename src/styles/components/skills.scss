@@ -1,0 +1,24 @@
+.skills {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: table;
+    margin-bottom: 2vw;
+  }
+
+  &__desc {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 2vw;
+    @include font-mono(300);
+  }
+
+  &__img {
+    display: table-cell;
+    vertical-align: middle;
+    width: 125px;
+    height: 125px;
+  }
+}

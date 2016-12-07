@@ -1,4 +1,6 @@
 .project {
+  @include font-sans();
+
   &__title {
     @include font-mono();
     text-transform: uppercase;
