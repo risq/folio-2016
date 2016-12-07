@@ -35,7 +35,7 @@
     &-wrapper {
       position: fixed;
       top: 2vw;
-      bottom: 2vw;
+      bottom: 0;
       width: percentage(1 / $grid-cols);
       left: 2vw;
       transition: left .5s ease-in-out;
@@ -50,11 +50,13 @@
     &-inner {
       padding-top: 35vh;
       height: 100%;
+      box-sizing: border-box;
       position: relative;
 
       nav {
         height: 100%;
         position: relative;
+        overflow: auto;
       }
     }
   }
