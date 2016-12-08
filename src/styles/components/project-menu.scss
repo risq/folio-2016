@@ -1,6 +1,3 @@
-$project-menu-link-color: lighten($color-main, 45%);
-$project-menu-link-color-active: lighten($color-main, 20%);
-
 .project-menu {
   pointer-events: auto;
 
@@ -19,7 +16,7 @@ $project-menu-link-color-active: lighten($color-main, 20%);
   &__link {
     color: $color-black;
     text-decoration: none;
-    background-color: $project-menu-link-color;
+    background-color: $color-main-ultralight;
     white-space: pre-wrap;
     position: relative;
     padding-right: .35em;
@@ -32,16 +29,16 @@ $project-menu-link-color-active: lighten($color-main, 20%);
       right: 100%;
       bottom: 0;
       width: 0.4em;
-      background-color: $project-menu-link-color;
+      background-color: $color-main-ultralight;
       transition: background-color 1s ease-in-out;
     }
 
     &:hover, &.active {
-      background-color: $project-menu-link-color-active;
+      background-color: $color-main-light;
       transition: background-color .2s ease-in-out;
 
       &:after {
-        background-color: $project-menu-link-color-active;
+        background-color: $color-main-light;
         transition: background-color .2s ease-in-out;
       }
       // box-shadow: 6px 0 0 lighten($color-main, 20%) -6px 0 0 lighten($color-main, 20%);

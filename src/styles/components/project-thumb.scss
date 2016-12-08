@@ -3,10 +3,14 @@
   position: relative;
   overflow: hidden;
 
-  &:hover &__overlay ,
-  &:active &__overlay ,
-  &:focus &__overlay {
+  &:hover &__overlay {
     opacity: 1;
+  }
+
+  &:active &__overlay {
+    opacity: 1;
+    background-color: fade-out($color-white, .25);
+    color: $color-black;
   }
 
   &--backToHomeLink.card__thumb {
@@ -41,7 +45,7 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out, background-color .075s ease-in-out, color .075s ease-in-out;
   }
 
   &__overlay-inner {

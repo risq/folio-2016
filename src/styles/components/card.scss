@@ -12,8 +12,17 @@ $lightness: 4.5%;
   }
 
   &--clickable:not(.flipped):active &__front {
-    transition: all .05s ease-in-out;
+    transition: transform .05s ease-in-out, background-color .05s ease-in-out;
+    background-color: $color-main-ultralight;
     transform: scale(.85) rotateY(0);
+    
+    .card-nav__inner {
+      color: $color-main-light;
+
+      .card-nav__title:after {
+        background-color: $color-main-light;
+      }
+    }
   }
 
   @for $i from 1 through 8 {
