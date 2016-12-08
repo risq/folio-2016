@@ -37,6 +37,7 @@ export default class Router {
           .addClass('hidden');
         this.$els.contentMenu
           .addClass('hidden');
+
       this.page = 'home';
     }
   }
@@ -56,6 +57,7 @@ export default class Router {
   }
 
   navigateToSkills() {
+    this.$els.contentWrapper.scrollTop(0);
     this.$els.pageName.text('compétences');
     this.$els.page.projects.hide();
     this.$els.page.skills.show();
