@@ -1,6 +1,6 @@
 import debounce from 'debounce';
 
-const scrollSpyMargin = 100;
+const scrollSpyMargin = 400;
 
 export default class Menu {
   constructor() {
@@ -18,7 +18,7 @@ export default class Menu {
 
   initEvents() {
     this.$els.links.on('click', this.onLinkClick.bind(this));
-    this.$els.contentWrapper.on('scroll', debounce(this.onScroll.bind(this), 100));
+    this.$els.contentWrapper.on('scroll', debounce(this.onScroll.bind(this), 50));
   }
 
   initScrollSpy() {
@@ -46,7 +46,6 @@ export default class Menu {
 
   onScroll(e) {
     const scrollTop = this.$els.contentWrapper.scrollTop();
-    console.log('onScroll', scrollTop);
     const link = this.offsets.find(project => scrollTop > project.offset).link;
     this.$els.links.not(link).removeClass('active');
     $(link).addClass('active');

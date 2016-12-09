@@ -31,6 +31,5 @@ $(window).on('resize', debounce(onResize, 200));
 window.$ = $;
 
 function onResize() {
-  console.log('onResize');
   menu.initScrollSpy();
 }
