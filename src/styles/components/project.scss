@@ -22,6 +22,12 @@
     font-size: 0;
     margin-top: 10rem;
     margin-right: -1rem;
+    text-align: center;
+
+    @include portrait() {
+      margin-top: 5rem;
+      margin-right: 0;
+    }
 
     img {
       width: auto;
@@ -30,6 +36,11 @@
       max-height: 47.5rem * 9 / 16;
       display: inline-block;
       margin: 0 1rem 1rem 0;
+
+      @include portrait() {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

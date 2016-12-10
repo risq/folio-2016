@@ -1,6 +1,10 @@
 .project-menu {
   pointer-events: auto;
 
+  @include portrait() {
+    display: none;
+  }
+
   ul {
     padding: 0;
     margin: 0;

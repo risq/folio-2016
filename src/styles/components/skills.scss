@@ -6,6 +6,10 @@
   &__item {
     display: table;
     margin-bottom: 2vw;
+
+    @include portrait() {
+      margin-bottom: 8vw;
+    }
   }
 
   &__desc {
@@ -13,6 +17,10 @@
     vertical-align: middle;
     padding: 0 2vw;
     @include font-mono(300);
+
+    @include portrait() {
+      padding: 0 2vw 0 6vw;
+    }
   }
 
   &__img {
@@ -20,5 +28,10 @@
     vertical-align: middle;
     width: 125px;
     height: 125px;
+
+    @include portrait() {
+      width: 20vw;
+      height: 20vw;
+    }
   }
 }

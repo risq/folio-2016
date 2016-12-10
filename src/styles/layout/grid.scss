@@ -6,6 +6,10 @@
   position: fixed;
   color: $color-white;
 
+  @include portrait() {
+    display: none;
+  }
+
   &__row {
     height: percentage(1 / $grid-rows);
     width: 100%;

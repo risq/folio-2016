@@ -8,3 +8,9 @@ $mq-breakpoints: (
 $mq-show-breakpoints: (mobile, tablet, desktop, wide);
 
 @import "~sass-mq/_mq.scss";
+
+@mixin portrait() {
+  @include mq($until: desktop, $and: '(orientation: portrait)') {
+    @content;
+  }
+}

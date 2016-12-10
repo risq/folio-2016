@@ -9,6 +9,14 @@
   pointer-events: none;
   transition: opacity .5s ease-in-out, height 0s ease;
 
+  @include portrait() {
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: auto;
+  }
+
   &__wrapper {
     margin-left: percentage(1 / $grid-cols);
     padding: $external-border-width;
@@ -17,6 +25,11 @@
     box-sizing: border-box;
     background-color: $color-white;
     overflow: auto;
+
+    @include portrait() {
+      margin: 0;
+      overflow: hidden;
+    }
   }
 
   &__inner {
@@ -28,6 +41,20 @@
       border-style: solid;
       border-color: $color-lightgrey;
       margin: 10rem 0;
+
+      @include portrait() {
+        margin: 5rem 0;
+      }
+    }
+  }
+
+  &__page {
+    &.hidden {
+      display: none;
+
+      @include portrait() {
+        display: block;
+      }
     }
   }
 
@@ -65,5 +92,10 @@
     height: 0;
     opacity: 0;
     transition: opacity .5s ease-in-out, height 0s ease .5s, overflow 0s ease .5s;
+
+    @include portrait() {
+      height: auto;
+      opacity: 1;
+    }
   }
 }

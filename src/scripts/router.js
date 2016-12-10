@@ -44,8 +44,8 @@ export default class Router {
 
   navigateToProject($targetProject) {
     this.$els.pageName.text('projets');
-    this.$els.page.skills.hide();
-    this.$els.page.projects.show();
+    this.$els.page.skills.addClass('hidden');
+    this.$els.page.projects.removeClass('hidden');
     this.$els.contentMenu
       .removeClass('hidden');
 
@@ -59,8 +59,8 @@ export default class Router {
   navigateToSkills() {
     this.$els.contentWrapper.scrollTop(0);
     this.$els.pageName.text('compétences');
-    this.$els.page.projects.hide();
-    this.$els.page.skills.show();
+    this.$els.page.projects.addClass('hidden');
+    this.$els.page.skills.removeClass('hidden');
     this.$els.contentMenu
       .addClass('hidden');
 
