@@ -1,5 +1,6 @@
 .npm
 *.log
 npm-debug.log*
+.DS_Store
 dist
 node_modules
