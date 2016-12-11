@@ -5,7 +5,8 @@
   "scripts": {
     "build": "npm run thumbnails && webpack --config webpack-prod.config.js --colors",
     "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors",
-    "thumbnails": "mogrify -path src/static/images/projects/small -thumbnail 480x270 src/static/images/projects/*.jpg"
+    "thumbnails": "mogrify -path src/static/images/projects/small -thumbnail 480x270 src/static/images/projects/*.jpg",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "eslint": "^2.10.2",
     "eslint-loader": "^1.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.17.0",
     "node-sass": "^3.7.0",
     "sass-loader": "^3.2.0",
