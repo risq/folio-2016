@@ -1,8 +1,8 @@
 'use strict';
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 import 'babel-polyfill';
 import 'simplezoom';
@@ -16,11 +16,11 @@ import Router from './router';
 import Cards from './cards';
 import Menu from './menu';
 
-$('.js-simplezoom').simplezoom();
-
 const router = new Router();
 const cards = new Cards();
 const menu = new Menu();
+
+$('.js-simplezoom').simplezoom();
 
 cards.events.on('projects:show', () => {
   menu.initScrollSpy();

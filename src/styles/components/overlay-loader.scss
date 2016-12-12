@@ -1,0 +1,81 @@
+.overlay-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-white;
+  z-index: 1000;
+  transition: all .5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__text {
+    position: absolute;
+    font-size: 2vw;
+    width: 50%;
+    color: $color-main;
+    text-transform: uppercase;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    @include font-mono();
+    // display: none;
+
+    &--left {
+      left: 0;
+      text-align: right;
+    }
+    &--right {
+      right: 0;
+    }
+  }
+
+  &__subtext {
+    font-size: 1vw;
+    color: $color-main;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 4vw;
+    @include font-mono();
+  }
+
+  &__spinner{
+    perspective: 20vw;
+    position: relative;
+    width: 3vw;
+    height: 3vw;
+
+    &:before{
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: $color-main;
+      animation: flip 1s infinite;
+    }
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotateY(180deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateY(180deg)  rotateX(180deg);
+  }
+}

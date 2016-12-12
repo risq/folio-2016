@@ -15,12 +15,11 @@ export default class Cards {
 
     this.projectSelectView = false;
     this.events = new EventEmitter();
-
-    setTimeout(() => this.initCards(), 500);
   }
 
   initEls() {
     this.$els = {
+      loader: $('.js-loader'),
       cards: $('.js-card').sort((a, b) => this.getCardIndex($(a)) - this.getCardIndex($(b))),
       videos: $('.js-card-video'),
       headerCard: $('.js-card-header'),
@@ -31,6 +30,7 @@ export default class Cards {
   }
 
   initEvents() {
+    $(window).on('load', this.onLoad.bind(this));
     this.$els.cards.on('click', this.onCardClick.bind(this));
     this.$els.projectsCard.on('click', this.onProjectsCardClick.bind(this));
     this.$els.skillsCard.on('click', this.onSkillsCardClick.bind(this));
@@ -38,8 +38,13 @@ export default class Cards {
     this.$els.headerCard.on('click', this.onHeaderCardClick.bind(this));
   }
 
-  initCards() {
-    return this.propagate(0, [], $card => $card.removeClass('flipped'));
+  onLoad() {
+    this.$els.loader.addClass('hidden');
+    this.propagate(0, [], $card => $card.removeClass('flipped'))
+      .then(() => {
+        console.log('done !');
+        this.$els.loader.remove();
+      });
   }
 
   onCardClick(e) {
