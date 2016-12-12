@@ -39,10 +39,10 @@ export default class Cards {
   }
 
   onLoad() {
-    // this.$els.loader.addClass('hidden');
+    this.$els.loader.addClass('hidden');
     this.propagate(0, [], $card => $card.removeClass('flipped'))
       .then(() => {
-        // this.$els.loader.remove();
+        this.$els.loader.remove();
       });
   }
 
