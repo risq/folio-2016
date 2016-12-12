@@ -25,7 +25,6 @@
     padding: 0 3vw;
     box-sizing: border-box;
     @include font-mono();
-    // display: none;
 
     &--left {
       left: 0;
@@ -47,7 +46,7 @@
   }
 
   &__spinner{
-    perspective: 20vw;
+    perspective: 7vw;
     position: relative;
     width: 3vw;
     height: 3vw;
