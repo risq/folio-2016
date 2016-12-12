@@ -7,7 +7,7 @@
 
   ul {
     padding: 0;
-    margin: 0;
+    margin: 0 0 2em 0;
     list-style: none;
   }
 
@@ -15,6 +15,10 @@
     margin: 0 0 .35em .35em;
     letter-spacing: 2px;
     @include font-sans(500);
+
+    @include mq($until: desktop) {
+      font-size: 1.4rem;
+    }
   }
 
   &__link {
