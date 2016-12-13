@@ -1,4 +1,3 @@
-$card-padding: 1.25vw;
 $initialLightenPercent: 0%;
 $lightness: 4.5%;
 
@@ -94,7 +93,6 @@ $lightness: 4.5%;
   }
 
   &__front {
-    padding: $card-padding;
     box-sizing: border-box;
     z-index: 2;
     transform: scale(1) rotateY(0deg);

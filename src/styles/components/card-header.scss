@@ -3,6 +3,7 @@
   overflow: hidden;
 
   .card__front {
+    padding: 1.25vw;
     background-color: $color-darkgrey;
   }
 
@@ -61,8 +62,8 @@
     letter-spacing: -.15vw;
     margin: 0;
     position: absolute;
-    bottom: $card-padding;
-    right: $card-padding;
+    bottom: 1.25vw;
+    right: 1.25vw;
     @include font-mono(300);
   }
 
@@ -71,7 +72,7 @@
     font-size: 1vw;
     text-transform: uppercase;
     position: absolute;
-    padding: $card-padding;
+    padding: 1.25vw;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
