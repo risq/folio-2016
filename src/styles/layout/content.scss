@@ -58,6 +58,23 @@
     }
   }
 
+  &__title {
+    display: none;
+    width: 100%;
+    padding: 1rem 0;
+    margin: 10rem 0 6rem;
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    background-color: $color-main-light;
+    color: $color-white;
+    @include font-mono();
+
+    @include portrait() {
+      display: block;
+    }
+  }
+
   &__menu {
     &-wrapper {
       position: fixed;
