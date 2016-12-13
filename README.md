@@ -1,11 +1,5 @@
 # folio-2016
 
-### installation
-
-```
-npm install
-```
-
 ### start dev server
 
 ```
@@ -16,4 +10,16 @@ npm run dev
 
 ```
 npm run build
+```
+
+### generate thumbnails
+
+```
+npm run thumbnails
+```
+
+### deploy
+
+```
+npm run deploy
 ```
