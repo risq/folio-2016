@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run thumbnails && webpack --config webpack-prod.config.js --colors",
     "dev": "webpack-dev-server --config webpack-dev.config.js --watch --colors",
-    "thumbnails": "mogrify -path src/static/images/projects/small -thumbnail 480x270 src/static/images/projects/*.jpg",
+    "thumbnails": "mogrify -path src/static/images/projects/small -thumbnail 480x270 src/static/images/projects/*.{jpg,png}",
     "deploy": "npm run build && echo valentinledrapier.com > dist/CNAME && gh-pages -d dist"
   },
   "repository": {
