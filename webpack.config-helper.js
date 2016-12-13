@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const extractSASS = new ExtractTextPlugin('styles/bundle.css');
 
@@ -51,6 +52,11 @@ module.exports = (options) => {
         },
       }],
     },
+    postcss: [
+     autoprefixer({
+       browsers: ['last 3 versions', '> 1%']
+     })
+   ],
   };
 
   if (options.isProduction) {
@@ -68,7 +74,7 @@ module.exports = (options) => {
 
     webpackConfig.module.loaders.push({
       test: /\.scss$/i,
-      loader: extractSASS.extract(['css', 'sass']),
+      loader: extractSASS.extract(['css', 'postcss-loader', 'sass']),
     });
 
   } else {
@@ -78,7 +84,7 @@ module.exports = (options) => {
 
     webpackConfig.module.loaders.push({
       test: /\.scss$/i,
-      loaders: ['style', 'css', 'sass'],
+      loaders: ['style', 'css', 'postcss-loader', 'sass'],
     }, {
       test: /\.js$/,
       loader: 'eslint',
