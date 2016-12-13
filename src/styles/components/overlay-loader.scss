@@ -7,9 +7,6 @@
   background-color: $color-white;
   z-index: 1000;
   transition: all .5s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &.hidden {
     opacity: 0;
@@ -18,8 +15,12 @@
 
   &__text {
     position: absolute;
-    font-size: 2vw;
     width: 50%;
+    top: 50%;
+    height: 2vw;
+    font-size: 2vw;
+    line-height: 2vw;
+    margin-top: -1vw;
     color: $color-main;
     text-transform: uppercase;
     padding: 0 3vw;
@@ -41,7 +42,9 @@
     position: absolute;
     width: 100%;
     text-align: center;
-    margin-top: 4vw;
+    margin-top: 3vw;
+    top: 50%;
+    left: 0;
     @include font-mono();
   }
 
@@ -50,6 +53,10 @@
     position: relative;
     width: 3vw;
     height: 3vw;
+    left: 50%;
+    top: 50%;
+    margin-left: -1.5vw;
+    margin-top: -1.5vw;
 
     &:before{
       content: " ";
