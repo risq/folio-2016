@@ -37,6 +37,10 @@
     max-width: 96rem;
     padding-bottom: 10rem;
 
+    @include portrait() {
+      max-width: none;
+    }
+
     hr {
       border-style: solid;
       border-color: $color-lightgrey;
@@ -49,6 +53,11 @@
   }
 
   &__page {
+    @include portrait() {
+      margin-top: 12rem;
+      padding-top: 2vw;
+    }
+
     &.hidden {
       display: none;
 
@@ -62,7 +71,7 @@
     display: none;
     width: 100%;
     padding: 1rem 0;
-    margin: 10rem 0 6rem;
+    margin: 0 0 6rem;
     text-align: center;
     font-size: 3rem;
     text-transform: uppercase;

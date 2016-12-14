@@ -29,9 +29,14 @@
     width: 125px;
     height: 125px;
 
+    @include mq($until: tablet) {
+      width: 12vw;
+      height: 12vw;
+    }
+
     @include portrait() {
-      width: 20vw;
-      height: 20vw;
+      width: 16vw;
+      height: 16vw;
     }
   }
 }

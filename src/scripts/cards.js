@@ -23,9 +23,11 @@ export default class Cards {
       cards: $('.js-card').sort((a, b) => this.getCardIndex($(a)) - this.getCardIndex($(b))),
       videos: $('.js-card-video'),
       headerCard: $('.js-card-header'),
+      projectsBack: $('.js-projects-back'),
       projectsCard: $('.js-card-projects'),
       skillsCard: $('.js-card-skills'),
-      projectsBack: $('.js-projects-back'),
+      projectsStaticCard: $('.js-staticCard-projects'),
+      skillsStaticCard: $('.js-staticCard-skills'),
     };
   }
 
@@ -36,6 +38,8 @@ export default class Cards {
     this.$els.skillsCard.on('click', this.onSkillsCardClick.bind(this));
     this.$els.projectsBack.on('click', this.onProjectsBackClick.bind(this));
     this.$els.headerCard.on('click', this.onHeaderCardClick.bind(this));
+    this.$els.projectsStaticCard.on('click', () => router.request('scrollToProjects'));
+    this.$els.skillsStaticCard.on('click', () => router.request('scrollToSkills'));
   }
 
   onLoad() {
@@ -78,10 +82,7 @@ export default class Cards {
 
   onSkillsCardClick(e) {
     if (!this.projectSelectView) {
-      this.viewSkills()
-        .then(() => {
-
-        });
+      this.viewSkills();
     }
   }
 

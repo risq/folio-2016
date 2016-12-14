@@ -13,6 +13,8 @@ export default class Router {
       navigateToHome: this.navigateToHome.bind(this),
       navigateToProject: this.navigateToProject.bind(this),
       navigateToSkills: this.navigateToSkills.bind(this),
+      scrollToProjects: this.scrollToProjects.bind(this),
+      scrollToSkills: this.scrollToSkills.bind(this),
     });
   }
 
@@ -27,7 +29,7 @@ export default class Router {
       page: {
         projects: $('.js-contentPage[data-page="projects"]'),
         skills: $('.js-contentPage[data-page="skills"]'),
-      }
+      },
     };
   }
 
@@ -68,5 +70,17 @@ export default class Router {
       .removeClass('hidden');
 
     this.page = 'skills';
+  }
+
+  scrollToProjects() {
+    $('body').animate({
+      scrollTop: this.$els.page.projects.offset().top,
+    });
+  }
+
+  scrollToSkills() {
+    $('body').animate({
+      scrollTop: this.$els.page.skills.offset().top,
+    });
   }
 }
