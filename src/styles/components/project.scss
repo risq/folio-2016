@@ -57,6 +57,13 @@
       height: 100%;
     }
   }
+
+  &__end-text {
+    font-size: 1.6rem;
+    margin-top: 4rem;
+    color: $color-darkgrey;
+    @include font-mono()
+  }
 }
 
 .project-desc {
