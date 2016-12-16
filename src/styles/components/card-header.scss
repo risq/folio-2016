@@ -39,6 +39,7 @@
     text-transform: uppercase;
     line-height: 5.5vh;
     margin: 0;
+    display: block;
     position: relative;
     z-index: 10;
     @include font-mono();
@@ -53,10 +54,10 @@
       display: block;
       position: absolute;
       background-color: $color-white;
-      width: 90%;
+      width: 60%;
       height: 2px;
       left: 0;
-      bottom: -.75vw;
+      bottom: -1vw;
     }
   }
 
