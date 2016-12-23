@@ -62,7 +62,14 @@
     font-size: 1.6rem;
     margin-top: 4rem;
     color: $color-darkgrey;
-    @include font-mono()
+    @include font-mono(700);
+
+    ul {
+      @include font-mono(500);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
   }
 }
 
